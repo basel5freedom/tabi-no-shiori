@@ -1,0 +1,598 @@
+:root {
+  /* ── パスポート／旅行ジャーナルの配色 ── */
+  --navy: #17324f;
+  --navy-deep: #0f2338;
+  --paper: #f5edd9;
+  --paper-2: #efe4ca;
+  --paper-line: #e2d3ac;
+  --brass: #b0863a;
+  --brass-soft: #cba85c;
+  --stamp: #b5382e;
+  --ink: #2c2a24;
+  --ink-soft: #6b6455;
+  --ok: #3f7d5a;
+
+  --font-mincho: 'Shippori Mincho', 'Noto Serif JP', 'YuMincho', 'Hiragino Mincho ProN', serif;
+  --font-gothic: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Noto Sans JP', system-ui, sans-serif;
+
+  --radius: 10px;
+  --shadow: 0 10px 30px rgba(23, 50, 79, 0.12);
+  --maxw: 760px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-gothic);
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(202, 168, 92, 0.12), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(23, 50, 79, 0.08), transparent 45%);
+  background-attachment: fixed;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-mincho);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--navy);
+  margin: 0 0 0.6em;
+}
+
+a {
+  color: var(--navy);
+}
+
+.page {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 24px 18px 80px;
+}
+
+/* ── ヘッダー ── */
+.site-header {
+  background: var(--navy);
+  color: var(--paper);
+  border-bottom: 3px solid var(--brass);
+}
+.site-header .inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.site-header a {
+  color: var(--paper);
+  text-decoration: none;
+}
+.brand {
+  font-family: var(--font-mincho);
+  font-size: 18px;
+  letter-spacing: 0.14em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand .seal {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--brass-soft);
+  border-radius: 50%;
+  font-size: 13px;
+  color: var(--brass-soft);
+}
+.site-header nav {
+  display: flex;
+  gap: 14px;
+  font-size: 13px;
+}
+.site-header nav a {
+  opacity: 0.85;
+}
+.site-header nav a:hover {
+  opacity: 1;
+}
+
+/* ── カード／パネル ── */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+.card + .card {
+  margin-top: 16px;
+}
+
+.panel-navy {
+  background: var(--navy);
+  color: var(--paper);
+  border-radius: var(--radius);
+  padding: 20px;
+  border: 1px solid var(--navy-deep);
+}
+.panel-navy h1,
+.panel-navy h2,
+.panel-navy h3 {
+  color: var(--paper);
+}
+
+.muted {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.notice {
+  border-left: 3px solid var(--brass);
+  background: rgba(202, 168, 92, 0.14);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--ink);
+}
+.notice.warn {
+  border-left-color: var(--stamp);
+  background: rgba(181, 56, 46, 0.1);
+}
+
+/* ── フォーム ── */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.field {
+  margin-bottom: 18px;
+}
+input[type='text'],
+input[type='email'],
+input[type='date'],
+input[type='time'],
+input[type='number'],
+select,
+textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: #fffdf5;
+  border: 1px solid var(--paper-line);
+  border-radius: 8px;
+  padding: 9px 11px;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--brass-soft);
+  outline-offset: 1px;
+}
+textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+.row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.row > * {
+  flex: 1 1 160px;
+}
+.inline {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ── ボタン ── */
+.btn {
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  transition: transform 0.05s ease, filter 0.15s ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--navy);
+  color: var(--paper);
+}
+.btn-primary:hover {
+  filter: brightness(1.15);
+}
+.btn-stamp {
+  background: var(--stamp);
+  color: #fff;
+}
+.btn-ghost {
+  background: transparent;
+  border-color: var(--paper-line);
+  color: var(--navy);
+}
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── チップ／タグ ── */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--paper-2);
+  border: 1px solid var(--paper-line);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+}
+.chip button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1;
+}
+.chip.ai {
+  background: rgba(176, 134, 58, 0.16);
+  border-color: var(--brass-soft);
+  color: #7a5a1e;
+}
+.chip.ai::before {
+  content: '✦';
+  color: var(--brass);
+}
+.tag {
+  display: inline-block;
+  font-family: var(--font-mincho);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  background: var(--navy);
+  color: var(--paper);
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+/* ── 指標バッジ ── */
+.metrics {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.metrics b {
+  display: block;
+  color: var(--navy);
+  font-family: var(--font-mincho);
+  font-size: 14px;
+}
+
+/* ── タイムライン ── */
+.timeline {
+  position: relative;
+  padding-left: 26px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--paper-line);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 14px;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 7px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--brass);
+}
+.tl-spot {
+  background: #fffdf5;
+  border: 1px solid var(--paper-line);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.tl-spot .time {
+  font-family: var(--font-mincho);
+  font-weight: 700;
+  color: var(--navy);
+}
+.tl-spot .sname {
+  font-weight: 700;
+  font-size: 16px;
+}
+.tl-spot .sname a,
+.tl-spot .muted a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.tl-spot.hotel {
+  background: #eef2f6;
+  border-color: #cbd8e2;
+}
+.tl-spot.hotel .time {
+  color: var(--ink-soft);
+}
+.chip a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.mini-row a {
+  color: var(--navy);
+}
+
+.lodging-row {
+  border: 1px solid var(--paper-line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fffdf5;
+}
+.tl-transit {
+  margin-left: 6px;
+  border-left: 2px dashed var(--paper-line);
+  padding: 6px 0 6px 14px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.tl-transit.needs-review {
+  color: var(--stamp);
+}
+.tl-item.is-transit::before {
+  background: var(--paper-2);
+  border-color: var(--paper-line);
+  width: 8px;
+  height: 8px;
+  left: -20px;
+  top: 12px;
+}
+
+/* ── 感想メモ（付箋風） ── */
+.memo-note {
+  margin-top: 8px;
+  background: #fff6c9;
+  border: 1px solid #ecd984;
+  padding: 8px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  transform: rotate(-1.1deg);
+  box-shadow: 2px 3px 8px rgba(23, 50, 79, 0.12);
+}
+.memo-note::before {
+  content: '感想';
+  display: inline-block;
+  font-family: var(--font-mincho);
+  font-size: 11px;
+  color: var(--stamp);
+  border: 1px solid var(--stamp);
+  border-radius: 3px;
+  padding: 0 5px;
+  margin-right: 8px;
+  transform: rotate(1deg);
+}
+
+/* ── ドラッグハンドル ── */
+.drag-handle {
+  cursor: grab;
+  color: var(--ink-soft);
+  padding: 2px 6px;
+  border-radius: 4px;
+  user-select: none;
+}
+.drag-handle:active {
+  cursor: grabbing;
+}
+.sortable-ghost {
+  opacity: 0.4;
+}
+
+/* ── スタンプ見出し ── */
+.stamp-title {
+  display: inline-block;
+  font-family: var(--font-mincho);
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  border-radius: 6px;
+  padding: 2px 12px;
+  transform: rotate(-2deg);
+  letter-spacing: 0.1em;
+}
+
+/* ── PIN 表示 ── */
+.pin-badge {
+  font-family: var(--font-mincho);
+  font-size: 30px;
+  letter-spacing: 0.4em;
+  color: var(--brass-soft);
+  background: var(--navy-deep);
+  padding: 10px 8px 10px 22px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.pin-inputs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.pin-inputs input {
+  width: 54px;
+  height: 64px;
+  text-align: center;
+  font-family: var(--font-mincho);
+  font-size: 28px;
+}
+
+/* ── 一覧 ── */
+.history-row {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--paper-line);
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: #fffdf5;
+  margin-bottom: 10px;
+}
+.history-row:hover {
+  border-color: var(--brass-soft);
+}
+.history-row .h-title {
+  font-family: var(--font-mincho);
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 16px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--paper-line);
+  border-top-color: var(--navy);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: -3px;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── かんたんスケジュール（プラン選択画面） ── */
+.mini-sched {
+  display: grid;
+  gap: 10px;
+}
+.mini-day {
+  background: #fffdf5;
+  border: 1px solid var(--paper-line);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.mini-day-head {
+  font-family: var(--font-mincho);
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.mini-row {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  padding: 2px 0;
+}
+.mini-time {
+  flex: 0 0 44px;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.ai-mark {
+  color: var(--brass);
+}
+
+/* ── navy パネル内のボタン・入力を見えるように ── */
+.panel-navy .btn-ghost {
+  border-color: var(--brass-soft);
+  color: var(--paper);
+  background: rgba(255, 255, 255, 0.06);
+}
+.panel-navy .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+.panel-navy input {
+  background: #fffdf5;
+  color: var(--ink);
+}
+
+/* ── しおりのスポット／移動のメモ欄 ── */
+.item-memo {
+  margin-top: 8px;
+}
+.item-memo > label {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.memo-readonly {
+  margin-top: 6px;
+  font-size: 13px;
+  background: #fffdf5;
+  border-left: 3px solid var(--brass-soft);
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.spread {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.center {
+  text-align: center;
+}
+.mt {
+  margin-top: 16px;
+}
+.mt-lg {
+  margin-top: 28px;
+}
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--paper-line);
+  margin: 20px 0;
+}

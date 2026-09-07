@@ -1,0 +1,27 @@
+# Supabase CLI 設定（抜粋）。`supabase init` 済みプロジェクトにマージしてください。
+project_id = "tabi-no-shiori"
+
+# Edge Functions は独自に認証チェックするため、プラットフォーム側の JWT 検証は無効化する。
+#   - generate-plans / format-itinerary : anon キーで呼び出し（認証不要）
+#   - get-shared / update-shared         : PIN をサーバー側で照合
+#   - create-itinerary                   : 関数内で Authorization ヘッダの JWT を検証
+[functions.generate-plans]
+verify_jwt = false
+
+[functions.format-itinerary]
+verify_jwt = false
+
+[functions.estimate-transit]
+verify_jwt = false
+
+[functions.create-itinerary]
+verify_jwt = false
+
+[functions.reset-pin]
+verify_jwt = false
+
+[functions.get-shared]
+verify_jwt = false
+
+[functions.update-shared]
+verify_jwt = false
